@@ -1,0 +1,97 @@
+homeassistant:
+  name: Home
+
+  latitude: !secret home_lat
+  longitude: !secret home_long
+  elevation: 181
+  unit_system: imperial
+  time_zone: America/Chicago
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    update_interval: '00:05'
+    monitored_conditions:
+      - summary
+      - wind_speed
+      - temperature
+      - precip_probability
+      - precip_intensity
+      - cloud_cover
+      - humidity
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+zwave:
+  usb_path: /dev/z-stick
+
+ecobee:
+  api_key: !secret ecobee_api_key
+
+media_player:
+  - platform: sonos
+    hosts: 
+      - !secret sonos_1_ip
+      - !secret sonos_2_ip
+  - platform: plex
+
+nuheat:
+  username: !secret nuheat_user
+  password: !secret nuheat_pass
+  devices:
+    - 44103
+    - 222049
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

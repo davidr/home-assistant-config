@@ -1,0 +1,6 @@
+media_player.kitchen:
+  platform: sonos
+  unique_id: RINCON_949F3E02203A01400
+media_player.living_room:
+  platform: sonos
+  unique_id: RINCON_949F3E22DF0201400
