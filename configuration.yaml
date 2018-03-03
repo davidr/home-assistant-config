@@ -74,6 +74,7 @@ cloud:
 
 zwave:
   usb_path: /dev/z-stick
+  network_key: !secret zwave_network_key
 
 ecobee:
   api_key: !secret ecobee_api_key

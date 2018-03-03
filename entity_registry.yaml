@@ -4,3 +4,12 @@ media_player.kitchen:
 media_player.living_room:
   platform: sonos
   unique_id: RINCON_949F3E22DF0201400
+binary_sensor.sensor:
+  platform: zwave
+  unique_id: 2-72057594076463104
+sensor.alarm_type:
+  platform: zwave
+  unique_id: 2-72057594077528065
+sensor.alarm_level:
+  platform: zwave
+  unique_id: 2-72057594077528081
